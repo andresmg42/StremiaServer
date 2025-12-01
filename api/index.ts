@@ -38,7 +38,10 @@ const app = express();
  */
 const allowedOrigins = process.env.ORIGIN?.split(",").map(s => s.trim()).filter(Boolean);
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://streamia-shell.vercel.app', // specific origin, not '*'
+  credentials: true
+}));
 
 /**
  * Global middlewares
